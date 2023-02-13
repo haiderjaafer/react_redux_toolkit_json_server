@@ -3,7 +3,7 @@ import BookInfo from './BookInfo';
 import BooksList from './BooksList';
 import { useDispatch,useSelector } from 'react-redux';
 import './book.css';
-import {getBooks} from "../../store/bookSlice";
+import {getBooks,deleteBook} from "../../store/bookSlice";
 const PostContainer = () => {
 
 const {isLoading,books} = useSelector((state) => state.books);
@@ -23,7 +23,7 @@ const {isLoggedIn} = useSelector((state) => state.auth);
       <hr className='my-5' />
       <div className='row'>
         <div className='col'>
-          <BooksList isLoading={isLoading} books={books} isloggedIn={isLoggedIn}  />
+          <BooksList isLoading={isLoading} books={books} isloggedIn={isLoggedIn} deleteBook={deleteBook} dispatch={dispatch} />
         </div>
         <div className='col side-line'>
           <BookInfo />
